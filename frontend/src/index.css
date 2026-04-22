@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-medical-primary: #10b981; /* emerald-500 */
+  --color-medical-secondary: #3b82f6; /* blue-500 */
+  --color-medical-accent: #8b5cf6; /* violet-500 */
+  --color-medical-bg: #f8fafc; /* slate-50 */
+  --color-medical-card: #ffffff;
+  --color-medical-text-main: #0f172a; /* slate-900 */
+  --color-medical-text-muted: #64748b; /* slate-500 */
+}
+
+@layer base {
+  body {
+    background-color: var(--color-medical-bg);
+    color: var(--color-medical-text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.medical-gradient {
+  background: linear-gradient(135deg, var(--color-medical-primary), var(--color-medical-secondary));
+}
