@@ -15,6 +15,8 @@ export const useAuthStore = create((set) => ({
   user: null,
   isAuthenticated: !!localStorage.getItem("access_token"),
   groups: getSafeGroups(),
+  isSuperuser: false,
+  isStaff: false,
   isInitialized: false,
 
   login: (access, refresh) => {
@@ -30,6 +32,8 @@ export const useAuthStore = create((set) => ({
         user: decoded,
         isAuthenticated: true,
         groups: groups,
+        isSuperuser: decoded.is_superuser || false,
+        isStaff: decoded.is_staff || false,
         isInitialized: true,
       });
     } catch (error) {
@@ -51,6 +55,8 @@ export const useAuthStore = create((set) => ({
       user: null,
       isAuthenticated: false,
       groups: [],
+      isSuperuser: false,
+      isStaff: false,
       isInitialized: true,
     });
   },
@@ -67,6 +73,8 @@ export const useAuthStore = create((set) => ({
         set({
           user: decoded,
           groups: decoded.groups || [],
+          isSuperuser: decoded.is_superuser || false,
+          isStaff: decoded.is_staff || false,
           isAuthenticated: true,
           isInitialized: true,
         });

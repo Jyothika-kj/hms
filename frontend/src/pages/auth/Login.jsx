@@ -26,9 +26,10 @@ const Login = () => {
       const { access, refresh } = response.data;
       login(access, refresh);
       
-      // Redirect based on the first group found
-      const groups = useAuthStore.getState().groups;
-      if (groups.includes("Admin")) navigate("/admin");
+      // Redirect based on role or groups
+      const { groups, isSuperuser } = useAuthStore.getState();
+      
+      if (isSuperuser || groups.includes("Admin")) navigate("/admin");
       else if (groups.includes("Receptionist")) navigate("/receptionist");
       else if (groups.includes("Doctor")) navigate("/doctor");
       else if (groups.includes("Pharmacist")) navigate("/pharmacy");
