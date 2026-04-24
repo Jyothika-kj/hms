@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = ["hms-qrc3.onrender.com"]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
