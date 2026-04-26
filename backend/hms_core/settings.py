@@ -13,6 +13,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
+PORT = int(os.environ.get('PORT', 10000))
+
 ALLOWED_HOSTS = ["hms-qrc3.onrender.com"]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
